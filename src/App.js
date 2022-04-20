@@ -3,7 +3,7 @@ import './App.css';
 import { useGetEmployeesQuery, useGetEmployeeQuery, useAddEmployeeMutation } from './services/employeesApi'
 
 function App() {
-  const { employees, error, isLoading, isSuccess } = useGetEmployeesQuery();
+  const { data, error, isLoading, isSuccess } = useGetEmployeesQuery();
 
   return (
     <div className="App">
@@ -16,7 +16,7 @@ function App() {
       )}
       
       { isSuccess && (
-        employees?.data.map((emp) => 
+        data.data.map((emp) => 
           <pre key={emp.id}>
             <div>{emp.employee_name}</div>
             <ul><EmployeeDetail id={emp.id}/></ul>

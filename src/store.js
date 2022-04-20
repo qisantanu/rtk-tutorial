@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { employeeApi } from './services/employeesApi'
+import { movieApi } from './services/moviesApi'
 
 export const store = configureStore({
     reducer: {
-        [employeeApi.reducerPath]: employeeApi.reducer
+        [movieApi.reducerPath]: movieApi.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(employeeApi.middleware)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(movieApi.middleware)
 })
